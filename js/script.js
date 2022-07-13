@@ -1,4 +1,6 @@
 let tableData = {};
+let continuousButton = false;
+let time;
 
 window.onload = () => {
     getJSON();
@@ -35,7 +37,11 @@ function prizeDraw(){
             document.getElementById('prize_name_text').innerHTML = prize.name;
             console.log(prize.name);
 
-            if (prize.name == "輪迴碑石") { alert("輪迴碑石"); };
+            if (prize.name == "輪迴碑石") { 
+                continuousButton = false;
+                clearTimeout();
+                setTimeout(function() { alert("輪迴碑石"); }, 100)
+            };
             break;
         } else {
             total = total + prize.p;
@@ -44,9 +50,6 @@ function prizeDraw(){
 }
 
 document.getElementById("click").onclick = function() { prizeDraw() };
-
-var continuousButton = false;
-var time;
 
 function continuousDrawDown() {
     continuousButton = true;
