@@ -29,10 +29,9 @@ function prizeDraw(){
     // console.log("中獎號碼:" + probability);
     for (let i = 0; i < tableData.apple.length; i++) {
         let prize = tableData.apple[i];
-        let img = '1';
         // console.log("累計中獎率:" + total);
         if (probability >= total && probability <= total + prize.p) {
-            document.getElementById('prize_img').src=`img/${img}.png`;
+            document.getElementById('prize_img').src=`img/${prize.name}.png`;
             document.getElementById('prize_name_text').innerHTML = prize.name;
             console.log(prize.name);
 
