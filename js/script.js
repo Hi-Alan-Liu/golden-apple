@@ -44,3 +44,25 @@ function prizeDraw(){
 }
 
 document.getElementById("click").onclick = function() { prizeDraw() };
+
+var continuousButton = false;
+var time;
+
+function continuousDrawDown() {
+    continuousButton = true;
+    continuousprizeDraw();
+}
+
+function continuousDrawUp() {
+    continuousButton = false;
+    clearTimeout();
+}
+
+function continuousprizeDraw() {
+    if (continuousButton) {
+        prizeDraw()
+        time = setTimeout(function() {
+            continuousprizeDraw();
+        }, 100)
+    }
+}
