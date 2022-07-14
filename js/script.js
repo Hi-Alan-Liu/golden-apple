@@ -2,7 +2,6 @@ let tableData = {};
 let continuousButton = false;
 let time;
 
-let bulletinText;
 var prizeImg, prizeText, bulletinTextarea;
 
 window.onload = () => {
@@ -25,12 +24,9 @@ init();
 
 // 初始化
 function init() {
-    bulletinText = '歡迎您使用黃金蘋果模擬器。'
     prizeImg = document.getElementById('prize_img');
     prizeText = document.getElementById('prize_name_text');
-    bulletinTextarea = document.getElementById('bulletin');
-
-    bulletinTextarea.innerHTML = bulletinText;
+    bulletinTextarea = document.getElementById('bulletinText');
 }
 
 // 抽蘋果開獎
@@ -47,8 +43,15 @@ function prizeDraw(){
             prizeImg.src=`img/${prize.name}.png`;
             prizeText.innerHTML = prize.name;
 
-            bulletinText += `\n ${prize.name}`
-            bulletinTextarea.innerHTML = bulletinText;
+            var dateSpan = document.createElement('p');
+            if (bulletinPrizeColor(prize.name)) {
+                var prizeSpan = `<span class="text-success">${prize.name}<span>`
+                dateSpan.innerHTML = `恭喜您從黃金蘋果獲得${prizeSpan}。`;
+                dateSpan.className = "bg-warning";
+            } else {
+                dateSpan.innerHTML = `已獲得${prize.name} 道具1 個。`;
+            }
+            bulletinTextarea.appendChild(dateSpan);
             bulletinScrollHeight();
 
             if (prize.name == "輪迴碑石") { 
@@ -62,8 +65,6 @@ function prizeDraw(){
         }
     }
 }
-
-document.getElementById("click").onclick = function() { prizeDraw() };
 
 function continuousDrawDown() {
     continuousButton = true;
@@ -84,6 +85,13 @@ function continuousprizeDraw() {
     }
 }
 
-function bulletinScrollHeight() {
-    bulletinTextarea.scrollTop = bulletinTextarea.scrollHeight;
+function bulletinScrollHeight() { 
+    bulletinTextarea.scrollTop = bulletinTextarea.scrollHeight; 
 }
+
+function bulletinPrizeColor(name) {
+    let grandPrize = "輪迴碑石 漆黑的BOSS飾品碎片 神秘冥界武器變換箱 神秘冥界防具變換箱 星力16星強化卷軸 星力15星強化卷軸 星力14星強化卷軸 鈦之心 精靈之心 睿智葫蘆"
+    return grandPrize.includes(name);
+}
+
+document.getElementById("click").onclick = function() { prizeDraw() };
