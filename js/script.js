@@ -40,7 +40,7 @@ function prizeDraw(){
         // console.log("累計中獎率:" + total);
         if (probability >= total && probability <= total + prize.p) {
 
-            prizeImg.src=`img/${prize.name}.png`;
+            prizeImg.src=`img/prize/${prize.name}.png`;
             prizeText.innerHTML = prize.name;
 
             var dateSpan = document.createElement('p');
