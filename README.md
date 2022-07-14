@@ -8,10 +8,9 @@
 - [x] 抽取統計
 - [ ] 重置按鈕
 
+
 支援 PC 及 MOBILE
 
-[![](/img/demo01.png "PC")][PC]
-
-[![](/img/demo02.jpg "MOBILE")][MOBILE]
+![](/img/demo01.png "PC")
 
 [點擊進入](https://pa013971.github.io/golden-apple/)
