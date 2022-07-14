@@ -13,7 +13,7 @@
       <div class="contant">
         <!-- 黃金蘋果抽獎區 -->
         <div class="card text-white-50" id="appleModel">
-          <img src="img/apple.png" class="card-img-top" alt="...">
+          <img src="img/apple.png" class="card-img-top">
           <div class="card-body card-img-overlay text-center" style="margin-top: 56%;">
             <h5 class="card-title mb-4 text-light fw-bold" id="prize_name_text">　　</h5>
             <a href="#" id="click" class="btn btn-warning btn-sm mt-3" style="width: 65%;">抽一次</a>
@@ -26,12 +26,22 @@
 
     <footer class="footer">
       <!-- 統計 -->
-      
+      <div class="mx-3">
+        <div class="row m-1" style="max-width: 24rem;">
+          <div class="col-3 totle-img">
+            <img src="img/黃金蘋果.png" alt="黃金蘋果">
+          </div>
+          <p class="col-3 totle-number" id="totleAppleCount"></p>
+          <div class="col-3 totle-img">
+            <img src="img/輪迴碑石.png" alt="輪迴碑石">
+          </div>
+          <p class="col-3 totle-number" id="totleRockCount"></p>
+        </div>
+      </div>
 
       <!-- 公告欄 -->
-      <div class="card" id="bulletin" style="width: 100%; min-width: 18rem; max-width: 45rem; height: 13rem;">
+      <div class="card" id="bulletin">
         <div class="card-body overflow-auto" id="bulletinText">
-          <p class="text-info">歡迎您使用黃金蘋果模擬器。</p>
         </div>
       </div>
     </footer>

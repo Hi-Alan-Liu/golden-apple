@@ -11,16 +11,30 @@ html, body {
 
 .wrapper {
     min-height: 100%;
-    margin-bottom: -13rem;
+    margin-bottom: -17rem;
 }
 
 .contant{
-    padding-bottom: 13rem;
+    padding-bottom: 17rem;
     padding-top: 15%;
 }
 
 .footer{
-    height: 13rem;
+  
+}
+
+.totle-number {
+    font-size: 21px;
+    text-shadow: -1px 0 black, 0 1px black,1px 0 black, 0 -1px black;
+    color: white;
+    margin-bottom: 0rem!important;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.totle-img img{
+    display: block; 
+    margin: 0 auto;
 }
 
 #appleModel {
@@ -31,6 +45,10 @@ html, body {
 }
 
 #bulletin {
+    width: 100%;
+    min-width: 18rem;
+    max-width: 45rem;
+    height: 14rem;
     background-color: rgba(0, 0, 0, .75);
     color: gray;
 }

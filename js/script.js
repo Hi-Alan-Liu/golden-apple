@@ -1,8 +1,7 @@
 let tableData = {};
-let continuousButton = false;
-let time;
+let continuousButton, time, totleAppleCount, totleRockCount;
 
-var prizeImg, prizeText, bulletinTextarea;
+var prizeImg, prizeText, bulletinTextarea, totleAppleCountText, totleRockCountText;
 
 window.onload = () => {
     getJSON();
@@ -24,9 +23,19 @@ init();
 
 // 初始化
 function init() {
+    continuousButton = false;
+    time = 0;
+    totleAppleCount = 0;
+    totleRockCount = 0;
+
     prizeImg = document.getElementById('prize_img');
     prizeText = document.getElementById('prize_name_text');
     bulletinTextarea = document.getElementById('bulletinText');
+    totleAppleCountText = document.getElementById('totleAppleCount');
+    totleRockCountText = document.getElementById('totleRockCount');
+
+    bulletinTextarea.innerHTML = "<p class='text-info'>歡迎您使用黃金蘋果模擬器。</p>";
+    totalItemCount();
 }
 
 // 抽蘋果開獎
@@ -54,11 +63,16 @@ function prizeDraw(){
             bulletinTextarea.appendChild(dateSpan);
             bulletinScrollHeight();
 
+            totleAppleCount += 1;
+
             if (prize.name == "輪迴碑石") { 
                 continuousButton = false;
                 clearTimeout();
+                totleRockCount += 1;
                 setTimeout(function() { alert("輪迴碑石"); }, 100)
             };
+
+            totalItemCount();
             break;
         } else {
             total = total + prize.p;
@@ -92,6 +106,11 @@ function bulletinScrollHeight() {
 function bulletinPrizeColor(name) {
     let grandPrize = "輪迴碑石 漆黑的BOSS飾品碎片 神秘冥界武器變換箱 神秘冥界防具變換箱 星力16星強化卷軸 星力15星強化卷軸 星力14星強化卷軸 鈦之心 精靈之心 睿智葫蘆"
     return grandPrize.includes(name);
+}
+
+function totalItemCount() {
+    totleAppleCountText.innerHTML = `x ${totleAppleCount}`
+    totleRockCountText.innerHTML = `x ${totleRockCount}`
 }
 
 document.getElementById("click").onclick = function() { prizeDraw() };
