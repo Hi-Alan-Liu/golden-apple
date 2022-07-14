@@ -47,7 +47,7 @@ function prizeDraw(){
             if (bulletinPrizeColor(prize.name)) {
                 var prizeSpan = `<span class="text-success">${prize.name}<span>`
                 dateSpan.innerHTML = `恭喜您從黃金蘋果獲得${prizeSpan}。`;
-                dateSpan.className = "bg-warning";
+                dateSpan.className = "bg-warning text-dark";
             } else {
                 dateSpan.innerHTML = `已獲得${prize.name} 道具1 個。`;
             }
