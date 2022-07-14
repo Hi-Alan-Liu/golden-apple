@@ -2,6 +2,9 @@ let tableData = {};
 let continuousButton = false;
 let time;
 
+let bulletinText;
+var prizeImg, prizeText, bulletinTextarea;
+
 window.onload = () => {
     getJSON();
 }
@@ -18,9 +21,16 @@ let getJSON = () => {
     })
 }
 
+init();
+
 // 初始化
 function init() {
-    
+    bulletinText = '歡迎您使用黃金蘋果模擬器。'
+    prizeImg = document.getElementById('prize_img');
+    prizeText = document.getElementById('prize_name_text');
+    bulletinTextarea = document.getElementById('bulletin');
+
+    bulletinTextarea.innerHTML = bulletinText;
 }
 
 // 抽蘋果開獎
@@ -33,9 +43,13 @@ function prizeDraw(){
         let prize = tableData.apple[i];
         // console.log("累計中獎率:" + total);
         if (probability >= total && probability <= total + prize.p) {
-            document.getElementById('prize_img').src=`img/${prize.name}.png`;
-            document.getElementById('prize_name_text').innerHTML = prize.name;
-            console.log(prize.name);
+
+            prizeImg.src=`img/${prize.name}.png`;
+            prizeText.innerHTML = prize.name;
+
+            bulletinText += `\n ${prize.name}`
+            bulletinTextarea.innerHTML = bulletinText;
+            bulletinScrollHeight();
 
             if (prize.name == "輪迴碑石") { 
                 continuousButton = false;
@@ -68,4 +82,8 @@ function continuousprizeDraw() {
             continuousprizeDraw();
         }, 100)
     }
+}
+
+function bulletinScrollHeight() {
+    bulletinTextarea.scrollTop = bulletinTextarea.scrollHeight;
 }

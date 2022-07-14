@@ -7,17 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
-    <div class="card" style="width: 18rem;">
-        <img src="img/apple.png" class="card-img-top" alt="...">
-        <div class="card-body card-img-overlay text-center" style="margin-top: 56%;">
-          <h5 class="card-title mb-4 text-light fw-bold" id="prize_name_text">　　</h5>
-          <a href="#" id="click" class="btn btn-warning btn-sm mt-3" style="width: 65%;">抽一次</a>
-          <a href="#" onpointerdown="continuousDrawDown()" onpointerup="continuousDrawUp()" class="btn btn-success btn-sm mt-3" style="width: 30%;">連抽</a>
-          <img id="prize_img" src="img/0.png" style="height: 37px;position: absolute;top: -30%;left: 27%;">
-        </div>
+    <div class="card offset-sm-5" style="width: 18rem;">
+      <img src="img/apple.png" class="card-img-top" alt="...">
+      <div class="card-body card-img-overlay text-center" style="margin-top: 56%;">
+        <h5 class="card-title mb-4 text-light fw-bold" id="prize_name_text">　　</h5>
+        <a href="#" id="click" class="btn btn-warning btn-sm mt-3" style="width: 65%;">抽一次</a>
+        <a href="#" onpointerdown="continuousDrawDown()" onpointerup="continuousDrawUp()" class="btn btn-success btn-sm mt-3" style="width: 30%;">連抽</a>
+        <img id="prize_img" src="img/0.png" style="height: 37px;position: absolute;top: -30%;left: 27%;">
       </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+    <div class="card" style="width: 100%; max-width: 45rem; height: 13rem;">
+      <textarea class="form-control" style="height: 100%;resize: none;" id="bulletin" readonly="readonly"></textarea>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
