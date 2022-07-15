@@ -1,5 +1,7 @@
 # 新楓之谷 - 黃金蘋果模擬器
 
+![](/img/demo.gif)
+
 機率以官方提供為主 [觀看機率](https://tw-event.beanfun.com/MapleStory/eventad/EventAD.aspx?EventADID=8369)
 
 以開發功能如下：
