@@ -5,7 +5,8 @@ var prizeImg, prizeText, bulletinTextarea, totleAppleCountText, totleRockCountTe
 
 window.onload = async () => {
     await getJSON();
-    onloadImages();
+    await onloadImages();
+    loadingComplete();
 }
 
 //fetch取得本地json
@@ -21,8 +22,11 @@ let getJSON = () => {
 
 init();
 
-function onloadImages() 
-{
+function loadingComplete() {
+    document.getElementById('loading').style.display = "none";
+}
+
+function onloadImages() {
     var img = [];
     for (let i = 0; i < tableData.apple.length; i++) {
         img[i] = new Image();
